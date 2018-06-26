@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-@SpringBootApplication(scanBasePackages = {
-                                            "com.allianz.spring.boot",
-                                            "com.test"
-})
+//@SpringBootApplication(scanBasePackages = {
+//                                            "com.allianz.spring.boot",
+//                                            "com.test"
+//})
+@SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class BootTrainingApplication {
 
