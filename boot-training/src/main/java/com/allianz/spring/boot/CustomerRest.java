@@ -1,6 +1,7 @@
 package com.allianz.spring.boot;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletInputStream;
@@ -16,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -118,6 +120,21 @@ public class CustomerRest {
         }
         Customer processCustomerLoc = this.cp.processCustomer(customerParam);
         return ResponseEntity.ok(processCustomerLoc);
+    }
+
+    @GetMapping("/getall")
+    public List<Customer> getAllCustomers() {
+        List<Customer> listLoc = new ArrayList<>();
+        Iterable<Customer> findAllLoc = this.custDAO.findAll();
+        for (Customer customerLoc : findAllLoc) {
+            listLoc.add(customerLoc);
+        }
+        return listLoc;
+    }
+
+    @GetMapping("/getbyname/{isim}")
+    public List<Customer> getCustomers(@PathVariable("isim") final String name) {
+        return this.custDAO.findByNameStartingWith(name);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
