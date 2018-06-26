@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.annotation.RequestScope;
 
+import com.allianz.spring.boot.jpa.CustomerDAO;
+
 @RestController
 @RequestMapping("/cust")
 @RequestScope
@@ -34,6 +36,9 @@ public class CustomerRest {
     // kULLANMA
     @Autowired
     private Customer          customer;
+
+    @Autowired
+    private CustomerDAO       custDAO;
 
     @Autowired
     private CustomerProcessor cp;
@@ -64,7 +69,8 @@ public class CustomerRest {
 
     @RequestMapping(path = "/create3", method = RequestMethod.POST)
     public Customer createCustomer3(@RequestBody final Customer customerParam) throws CustomerException {
-        if (customerParam.getName().length() < 3) {
+        if (customerParam.getName()
+                         .length() < 3) {
             CustomerException ce = new CustomerException();
             ce.setDesc("isim 3 den küçük olamaz");
             throw ce;
@@ -74,6 +80,7 @@ public class CustomerRest {
 
     @RequestMapping(path = "/create4", method = RequestMethod.POST)
     public Customer createCustomer4(@RequestBody @Valid final Customer customerParam) throws CustomerException {
+        this.custDAO.save(customerParam);
         return this.cp.processCustomer(customerParam);
     }
 
@@ -92,16 +99,22 @@ public class CustomerRest {
     @RequestMapping(path = "/create6", method = RequestMethod.POST)
     public ResponseEntity<?> createCustomer6(@RequestBody final Customer customerParam) {
         if (customerParam == null) {
-            return ResponseEntity.badRequest().body(new ErrorObj(100,
-                                                                 "Customer null olamamz"));
+            return ResponseEntity.badRequest()
+                                 .body(new ErrorObj(100,
+                                                    "Customer null olamamz"));
         }
-        if ((customerParam.getSurname() == null) || customerParam.getSurname().isEmpty()) {
-            return ResponseEntity.badRequest().body(new ErrorObj(101,
-                                                                 "surname boş olamaz"));
+        if ((customerParam.getSurname() == null)
+            || customerParam.getSurname()
+                            .isEmpty()) {
+            return ResponseEntity.badRequest()
+                                 .body(new ErrorObj(101,
+                                                    "surname boş olamaz"));
         }
-        if (customerParam.getSurname().length() < 5) {
-            return ResponseEntity.badRequest().body(new ErrorObj(102,
-                                                                 "surname 5 den küçük olamaz"));
+        if (customerParam.getSurname()
+                         .length() < 5) {
+            return ResponseEntity.badRequest()
+                                 .body(new ErrorObj(102,
+                                                    "surname 5 den küçük olamaz"));
         }
         Customer processCustomerLoc = this.cp.processCustomer(customerParam);
         return ResponseEntity.ok(processCustomerLoc);
@@ -111,7 +124,8 @@ public class CustomerRest {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleCustexception(final MethodArgumentNotValidException ce) {
         String str = "";
-        List<ObjectError> allErrorsLoc = ce.getBindingResult().getAllErrors();
+        List<ObjectError> allErrorsLoc = ce.getBindingResult()
+                                           .getAllErrors();
         for (ObjectError objectErrorLoc : allErrorsLoc) {
             str += objectErrorLoc.getDefaultMessage();
         }

@@ -1,5 +1,8 @@
 package com.allianz.spring.boot;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -11,7 +14,12 @@ import org.springframework.stereotype.Component;
 //kullanma
 @Scope("prototype")
 @Component
+@Entity
 public class Customer {
+
+    @Id
+    @GeneratedValue
+    private long   custId;
 
     @NotEmpty
     @Size(min = 3, max = 30, message = "3 ila 30 arasında olmalı")
