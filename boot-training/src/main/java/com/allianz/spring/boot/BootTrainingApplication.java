@@ -2,6 +2,7 @@ package com.allianz.spring.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 //@SpringBootApplication(scanBasePackages = {
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 //})
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableConfigurationProperties
 public class BootTrainingApplication {
 
     public static void main(final String[] args) {
