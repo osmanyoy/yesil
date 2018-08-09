@@ -14,4 +14,12 @@ public class CustomerPropertyReaderDAO implements ICustomerDAO {
         return this.cp.getCustomerList();
     }
 
+    @Override
+    public void saveCustomer(final Customer customerParam) {
+    }
+
+    @Override
+    public void deleteCustomer(final long customerIdParam) {
+    }
+
 }

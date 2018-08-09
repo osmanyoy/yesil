@@ -6,4 +6,8 @@ public interface ICustomerDAO {
 
     List<Customer> getAllCustomers();
 
+    void saveCustomer(Customer customer);
+
+    void deleteCustomer(long customerId);
+
 }

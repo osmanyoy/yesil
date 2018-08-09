@@ -1,10 +1,12 @@
 package com.allianz.spring.boot.customer;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.allianz.spring.boot.MyNewClass;
@@ -15,7 +17,8 @@ public class CustomerManager {
     private final Map<Long, Customer> customerMap = new HashMap<>();
 
     @Autowired
-    private ICustomerDAO              customerPropertyReaderDAO;
+    @Qualifier("DB")
+    private ICustomerDAO              customerDAO;
 
     // @Autowired
     private MyNewClass                myNewClass;
@@ -67,17 +70,26 @@ public class CustomerManager {
 
     @Autowired
     public void fillCustomerMap() {
-        List<Customer> allCustomersLoc = this.customerPropertyReaderDAO.getAllCustomers();
+        List<Customer> allCustomersLoc = this.customerDAO.getAllCustomers();
         for (Customer customerLoc : allCustomersLoc) {
-            this.getCustomerMap()
-                .put(customerLoc.getCustomerId(),
-                     customerLoc);
+            this.customerMap.put(customerLoc.getCustomerId(),
+                                 customerLoc);
         }
-
     }
 
-    public Map<Long, Customer> getCustomerMap() {
-        return this.customerMap;
+    public void addCustomer(final Customer customerParam) {
+        this.customerDAO.saveCustomer(customerParam);
+        this.customerMap.put(customerParam.getCustomerId(),
+                             customerParam);
+    }
+
+    public void deleteCustomer(final long custId) {
+        this.customerDAO.deleteCustomer(custId);
+        this.customerMap.remove(custId);
+    }
+
+    public Collection<Customer> getAllCustomers() {
+        return this.customerMap.values();
     }
 
 }

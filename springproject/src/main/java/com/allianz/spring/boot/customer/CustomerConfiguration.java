@@ -21,8 +21,15 @@ public class CustomerConfiguration {
     }
 
     @Bean
+    @Qualifier("Property")
     public CustomerPropertyReaderDAO customerPropertyReaderDAO() {
         return new CustomerPropertyReaderDAO();
+    }
+
+    @Bean
+    @Qualifier("DB")
+    public CustomerDBDAO customerDBDAO() {
+        return new CustomerDBDAO();
     }
 
 }
