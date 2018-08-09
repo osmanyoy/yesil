@@ -1,15 +1,21 @@
-package com.allianz.spring.boot;
+package com.allianz.spring.boot.customer;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.allianz.spring.boot.MyNewClass;
+
 // @Component
 public class CustomerManager {
 
     private final Map<Long, Customer> customerMap = new HashMap<>();
+
+    @Autowired
+    private ICustomerDAO              customerPropertyReaderDAO;
 
     // @Autowired
     private MyNewClass                myNewClass;
@@ -61,24 +67,17 @@ public class CustomerManager {
 
     @Autowired
     public void fillCustomerMap() {
-        Customer customer1 = new Customer();
-        customer1.setCustomerId(1);
-        customer1.setName("osman1");
-
-        this.getCustomerMap().put(customer1.getCustomerId(),
-                             customer1);
-
-        Customer customer2 = new Customer();
-        customer2.setCustomerId(1);
-        customer2.setName("osman1");
-
-        this.getCustomerMap().put(customer2.getCustomerId(),
-                             customer2);
+        List<Customer> allCustomersLoc = this.customerPropertyReaderDAO.getAllCustomers();
+        for (Customer customerLoc : allCustomersLoc) {
+            this.getCustomerMap()
+                .put(customerLoc.getCustomerId(),
+                     customerLoc);
+        }
 
     }
 
     public Map<Long, Customer> getCustomerMap() {
-        return customerMap;
+        return this.customerMap;
     }
 
 }

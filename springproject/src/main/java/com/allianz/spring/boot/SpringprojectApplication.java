@@ -4,9 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.allianz.spring.boot.customer.CustomerManager;
+
 @SpringBootApplication
+@EnableConfigurationProperties
 public class SpringprojectApplication {
 
     @Autowired

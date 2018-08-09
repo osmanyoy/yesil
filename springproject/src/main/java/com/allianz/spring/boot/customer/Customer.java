@@ -1,4 +1,4 @@
-package com.allianz.spring.boot;
+package com.allianz.spring.boot.customer;
 
 
 public class Customer {

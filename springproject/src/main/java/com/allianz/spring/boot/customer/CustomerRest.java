@@ -1,4 +1,7 @@
-package com.allianz.spring.boot.rest;
+package com.allianz.spring.boot.customer;
+
+import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,12 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.allianz.spring.boot.Customer;
-import com.allianz.spring.boot.CustomerManager;
-
 @RestController
 @RequestMapping("/customer")
-public class MyRestController {
+public class CustomerRest {
 
     @Autowired
     private CustomerManager custormerManager;
@@ -32,6 +32,12 @@ public class MyRestController {
                              .put(id,
                                   customer);
         return "Customer eklendi " + name + " id : " + id;
+    }
+
+    @GetMapping("/all")
+    public Collection<Customer> getAllCustomers() {
+        Map<Long, Customer> customerMapLoc = this.custormerManager.getCustomerMap();
+        return customerMapLoc.values();
     }
 
 
