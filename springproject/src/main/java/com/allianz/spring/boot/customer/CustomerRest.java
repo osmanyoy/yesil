@@ -1,10 +1,13 @@
 package com.allianz.spring.boot.customer;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +40,17 @@ public class CustomerRest {
     public String removeCustomer(@PathVariable("id") final long custId) {
         this.custormerManager.deleteCustomer(custId);
         return "Customer eklendi " + custId;
+    }
+
+    @PostMapping("/add")
+    public String addCustomer(@RequestBody final Customer customerParam) {
+        List<PhoneItem> phoneItemsLoc = customerParam.getPhoneItems();
+        for (PhoneItem phoneItemLoc : phoneItemsLoc) {
+            phoneItemLoc.setCustomer(customerParam);
+        }
+
+        this.custormerManager.addCustomer(customerParam);
+        return "OK";
     }
 
 }
