@@ -1,8 +1,14 @@
 package com.allianz.spring.boot.employee;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Employee {
 
+    @Id
+    @GeneratedValue
     private long   employeeId;
     private String name;
     private String surname;

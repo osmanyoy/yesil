@@ -6,13 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class EmployeeManager {
 
     private final Map<Long, Employee> employeeCache = new HashMap<>();
 
+    @Autowired
+    private IEmployeeDAO              employeeDAO;
+
     public void addEmployee(final Employee employee) {
         this.employeeCache.put(employee.getEmployeeId(),
                                employee);
+        this.employeeDAO.persistEmployee(employee);
 
     }
 
@@ -23,8 +29,17 @@ public class EmployeeManager {
     }
 
     public void removeEmployee(final long id) {
-        this.employeeCache.remove(id);
+        this.employeeDAO.removeEmployee(id);
 
+    }
+
+    @Autowired
+    public void fillCache() {
+        Collection<Employee> allEmployeeLoc = this.employeeDAO.getAllEmployee();
+        for (Employee employeeLoc : allEmployeeLoc) {
+            this.employeeCache.put(employeeLoc.getEmployeeId(),
+                                   employeeLoc);
+        }
     }
 
 }

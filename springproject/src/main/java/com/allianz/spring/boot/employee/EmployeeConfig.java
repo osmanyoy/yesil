@@ -11,4 +11,9 @@ public class EmployeeConfig {
         return new EmployeeManager();
     }
 
+    @Bean
+    public EmployeeDatabaseDAO employeeDatabaseDAO() {
+        return new EmployeeDatabaseDAO();
+    }
+
 }
