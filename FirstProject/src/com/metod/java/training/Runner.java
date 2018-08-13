@@ -15,13 +15,17 @@ public class Runner {
                                                       40,
                                                       50);
 
-        MyFirstObject3 buildType1Object = MyFirstObject3.getBuilder()
-                                                        .withIntValue(10)
-                                                        .withIntValue2(20)
-                                                        .withIntValue3(30)
-                                                        .withIntValue4(40)
-                                                        .withIntValue5(50)
-                                                        .buildType1Object();
+        try {
+            MyFirstObject3 buildType1Object = MyFirstObject3.getBuilder()
+                                                            .withIntValue(10)
+                                                            .withIntValue2(20)
+                                                            .withIntValue3(30)
+                                                            .withIntValue4(40)
+                                                            .withIntValue5(50)
+                                                            .buildType1Object();
+        } catch (MyFirstObject3CreationException e) {
+            e.printStackTrace();
+        }
     }
 
 }

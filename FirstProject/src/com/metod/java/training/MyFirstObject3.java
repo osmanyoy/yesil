@@ -53,12 +53,12 @@ public class MyFirstObject3 {
             return this;
         }
 
-        public MyFirstObject3 buildType1Object() {
+        public MyFirstObject3 buildType1Object() throws MyFirstObject3CreationException {
             if (this.myFirstObject3.intValue5 == 0) {
-                throw new IllegalArgumentException("intValue5 can not be 0");
+                throw new MyFirstObject3CreationException("intValue5 can not be 0");
             }
             if (this.myFirstObject3.intValue < 0) {
-                throw new IllegalArgumentException("intValue can not be negative");
+                throw new MyFirstObject3CreationException("intValue can not be negative");
             }
             return this.myFirstObject3;
         }
