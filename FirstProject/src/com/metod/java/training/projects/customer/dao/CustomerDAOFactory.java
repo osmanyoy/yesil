@@ -3,6 +3,7 @@ package com.metod.java.training.projects.customer.dao;
 import com.metod.java.training.projects.customer.ICustomerDAO;
 
 public class CustomerDAOFactory {
+
     public static ICustomerDAO getCustomerDAO() {
         String property = System.getProperties()
                                 .getProperty("customer.dao.type");
@@ -17,4 +18,5 @@ public class CustomerDAOFactory {
         }
 
     }
+
 }
