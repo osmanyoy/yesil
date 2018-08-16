@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class CustomerMain {
     public static void main(final String[] args) {
         CustomerManager customerManager = new CustomerManager();
-        customerManager.fillRandomCustomers();
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("username : ");
             String user = scanner.nextLine();
