@@ -3,11 +3,22 @@ package com.metod.java.training.projects.customer.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@Entity
 public class Customer {
+
+    @Id
     private String username;
     private String password;
     private String name;
     private String surname;
+
+    @OneToMany
     private List<Account> accounts = new ArrayList<>();
     private ECustomerType customerType;
 

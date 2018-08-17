@@ -1,6 +1,16 @@
 package com.metod.java.training.projects.customer.dao;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
+
+    @Id
+    @GeneratedValue
+    private long accountId;
+
     private EAccountType accountType;
     private double amount;
     private String description;
@@ -43,6 +53,14 @@ public class Account {
     public String toString() {
         return "\n    Account [accountType=" + this.accountType + ", amount=" + this.amount + ", description="
                 + this.description + "]";
+    }
+
+    public long getAccountId() {
+        return this.accountId;
+    }
+
+    public void setAccountId(final long accountId) {
+        this.accountId = accountId;
     }
 
 }
