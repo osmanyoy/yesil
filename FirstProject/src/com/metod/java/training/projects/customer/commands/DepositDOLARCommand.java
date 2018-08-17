@@ -12,4 +12,9 @@ public class DepositDOLARCommand implements ICommand {
         CustomerUtils.deposit(scanner, customer, EAccountType.DOLAR);
     }
 
+    @Override
+    public String getDescription() {
+        return "Dolar yatýr";
+    }
+
 }

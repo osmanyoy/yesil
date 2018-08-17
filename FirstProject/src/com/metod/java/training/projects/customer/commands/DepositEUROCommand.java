@@ -12,4 +12,9 @@ public class DepositEUROCommand implements ICommand {
         CustomerUtils.deposit(scanner, customer, EAccountType.EURO);
     }
 
+    @Override
+    public String getDescription() {
+        return "Euro yatýr";
+    }
+
 }

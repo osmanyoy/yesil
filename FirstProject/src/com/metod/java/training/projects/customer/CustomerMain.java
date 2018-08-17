@@ -2,6 +2,9 @@ package com.metod.java.training.projects.customer;
 
 import java.util.Scanner;
 
+import com.metod.java.training.projects.customer.processors.CustomerProcessorFactory;
+import com.metod.java.training.projects.customer.processors.ICustomerProcessor;
+
 public class CustomerMain {
     public static void main(final String[] args) {
         CustomerManager customerManager = new CustomerManager();
@@ -15,7 +18,8 @@ public class CustomerMain {
             if (customer != null) {
                 String password = customer.getPassword();
                 if (pass.equals(password)) {
-                    System.out.println(customer);
+                    ICustomerProcessor ccp = CustomerProcessorFactory.createCustomerProcessor(customer);
+                    ccp.process(customer, scanner);
                 } else {
                     System.out.println("Username yada Password yanlýþ");
                 }

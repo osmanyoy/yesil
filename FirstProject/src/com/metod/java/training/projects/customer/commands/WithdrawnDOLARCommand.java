@@ -12,4 +12,9 @@ public class WithdrawnDOLARCommand implements ICommand {
         CustomerUtils.withdrawn(scanner, customer, EAccountType.DOLAR);
     }
 
+    @Override
+    public String getDescription() {
+        return "Dolar çek";
+    }
+
 }

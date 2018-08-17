@@ -12,4 +12,9 @@ public class ShowEUROCommand implements ICommand {
         CustomerUtils.showAccount(customer, EAccountType.DOLAR);
     }
 
+    @Override
+    public String getDescription() {
+        return "Euro hesabý";
+    }
+
 }

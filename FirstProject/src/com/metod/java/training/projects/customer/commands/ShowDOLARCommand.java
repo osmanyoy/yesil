@@ -12,4 +12,9 @@ public class ShowDOLARCommand implements ICommand {
         CustomerUtils.showAccount(customer, EAccountType.DOLAR);
     }
 
+    @Override
+    public String getDescription() {
+        return "Dolar hesabý";
+    }
+
 }

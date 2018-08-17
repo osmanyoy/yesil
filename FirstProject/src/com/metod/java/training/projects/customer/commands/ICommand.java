@@ -6,4 +6,6 @@ import com.metod.java.training.projects.customer.Customer;
 
 public interface ICommand {
     void execute(Scanner scanner, Customer customer);
+
+    String getDescription();
 }

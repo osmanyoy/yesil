@@ -12,4 +12,9 @@ public class DepositTLCommand implements ICommand {
         CustomerUtils.deposit(scanner, customer, EAccountType.TL);
     }
 
+    @Override
+    public String getDescription() {
+        return "Tl yatýr";
+    }
+
 }

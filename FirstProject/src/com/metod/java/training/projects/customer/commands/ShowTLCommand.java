@@ -12,4 +12,9 @@ public class ShowTLCommand implements ICommand {
         CustomerUtils.showAccount(customer, EAccountType.TL);
     }
 
+    @Override
+    public String getDescription() {
+        return "Tl hesabý";
+    }
+
 }

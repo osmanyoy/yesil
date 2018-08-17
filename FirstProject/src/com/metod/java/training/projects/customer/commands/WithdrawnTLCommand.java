@@ -12,4 +12,9 @@ public class WithdrawnTLCommand implements ICommand {
         CustomerUtils.withdrawn(scanner, customer, EAccountType.TL);
     }
 
+    @Override
+    public String getDescription() {
+        return "Tl çek";
+    }
+
 }
