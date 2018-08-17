@@ -26,4 +26,9 @@ public class CustomerXMLDAO implements ICustomerDAO {
         return null;
     }
 
+    @Override
+    public void addCustomer(final Customer customer) {
+
+    }
+
 }

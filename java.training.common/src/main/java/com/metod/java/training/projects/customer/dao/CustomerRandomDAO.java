@@ -52,4 +52,9 @@ public class CustomerRandomDAO implements ICustomerDAO {
         return customers;
     }
 
+    @Override
+    public void addCustomer(final Customer customer) {
+
+    }
+
 }

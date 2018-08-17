@@ -85,7 +85,7 @@ public class DepositDOLARCommandTest {
         WithdrawnTLCommand command = new WithdrawnTLCommand();
         command.execute(mockScanner, this.customer);
 
-        Assert.assertEquals(900, this.tlAccount.getAmount(), 0);
+        Assert.assertEquals(1000, this.tlAccount.getAmount(), 0);
 
     }
 

@@ -10,6 +10,8 @@ public class CustomerDAOFactory {
             return new CustomerRandomDAO();
         case "xml":
             return new CustomerXMLDAO();
+        case "db":
+            return new CustomerDBDAO();
 
         default:
             return new CustomerRandomDAO();

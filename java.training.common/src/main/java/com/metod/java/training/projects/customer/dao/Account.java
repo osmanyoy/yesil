@@ -1,8 +1,11 @@
 package com.metod.java.training.projects.customer.dao;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Account {
@@ -14,6 +17,9 @@ public class Account {
     private EAccountType accountType;
     private double amount;
     private String description;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Customer customer;
 
     public Account() {
     }
@@ -61,6 +67,14 @@ public class Account {
 
     public void setAccountId(final long accountId) {
         this.accountId = accountId;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+
+    public void setCustomer(final Customer customer) {
+        this.customer = customer;
     }
 
 }

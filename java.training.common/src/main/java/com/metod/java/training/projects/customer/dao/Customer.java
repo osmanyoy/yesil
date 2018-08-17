@@ -3,23 +3,30 @@ package com.metod.java.training.projects.customer.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
+@Table(name = "Musteri")
 public class Customer {
 
     @Id
     private String username;
+    @Column(length = 30)
     private String password;
     private String name;
     private String surname;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Account> accounts = new ArrayList<>();
+
     private ECustomerType customerType;
 
     public Customer() {
