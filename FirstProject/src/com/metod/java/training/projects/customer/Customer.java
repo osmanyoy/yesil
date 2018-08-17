@@ -9,6 +9,7 @@ public class Customer {
     private String name;
     private String surname;
     private List<Account> accounts = new ArrayList<>();
+    private ECustomerType customerType;
 
     public Customer() {
     }
@@ -69,6 +70,14 @@ public class Customer {
 
     public void setAccounts(final List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public ECustomerType getCustomerType() {
+        return this.customerType;
+    }
+
+    public void setCustomerType(final ECustomerType customerType) {
+        this.customerType = customerType;
     }
 
 }
