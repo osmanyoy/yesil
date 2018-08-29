@@ -1,0 +1,9 @@
+-XX:+UseConcMarkSweepGC
+-XX:+UseParNewGC
+-Xloggc:logs/gc.log 
+-XX:+PrintGCDetails 
+-XX:+PrintGCTimeStamps 
+-XX:+PrintTenuringDistribution 
+-XX:+PrintHeapAtGC
+-XX:+PrintGCApplicationConcurrentTime
+-XX:+PrintGCApplicationStoppedTime
