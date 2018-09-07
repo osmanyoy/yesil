@@ -38,7 +38,7 @@
 			<name>Mehmet DOLAR account</name>
 		</accounts>
 		<age>48</age>
-		<customerType>GUMUS</customerType>
+		<customerType>ALTIN</customerType>
 		<name>mehmet</name>
 		<password>1234</password>
 		<surname>yayciouglu</surname>
@@ -61,10 +61,33 @@
 			<name>Ali EURO account</name>
 		</accounts>
 		<age>48</age>
-		<customerType>GUMUS</customerType>
+		<customerType>PLATINIUM</customerType>
 		<name>ali</name>
 		<password>1234</password>
 		<surname>yayciouglu</surname>
 		<username>ali</username>
+	</customers>
+		<customers>
+		<accounts>
+			<accounType>TL</accounType>
+			<amount>2000.0</amount>
+			<name>Veli TL account</name>
+		</accounts>
+		<accounts>
+			<accounType>DOLAR</accounType>
+			<amount>1000.0</amount>
+			<name>Veli DOLAR account</name>
+		</accounts>
+		<accounts>
+			<accounType>EURO</accounType>
+			<amount>1500.0</amount>
+			<name>Veli EURO account</name>
+		</accounts>
+		<age>48</age>
+		<customerType>PLATINIUM</customerType>
+		<name>Veli</name>
+		<password>1234</password>
+		<surname>yayciouglu</surname>
+		<username>veli</username>
 	</customers>
 </customerList>

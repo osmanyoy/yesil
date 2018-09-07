@@ -21,6 +21,9 @@ public class Customer {
 	
 	private List<ICommand> commands = new ArrayList<>();
 
+	public Customer() {
+	}
+	
 	public Customer(String name, String surname) {
 		super();
 		this.name = name;
