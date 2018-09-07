@@ -1,5 +1,8 @@
 package com.yapikredi.training.collentions;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Person implements Comparable<Person> {
 	private String name;
 	private String surname;

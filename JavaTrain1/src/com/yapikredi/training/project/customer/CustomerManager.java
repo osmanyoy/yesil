@@ -26,14 +26,14 @@ public class CustomerManager {
 
 	}
 	
-	public Customer login(String username,String password) {
+	public Customer login(String username,String password) throws LoginException {
 		Customer customer = customerCache.get(username);
 		if (customer == null) {
-			return null;
+			throw new LoginException("Böyle bir user yok");
 		}
 		if (password.equals(customer.getPassword())) {
 			return customer;
 		}
-		return null;
+		throw new LoginException("Password uyuþmuyor");
 	}
 }

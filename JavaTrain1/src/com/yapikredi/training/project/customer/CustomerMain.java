@@ -13,7 +13,16 @@ public class CustomerMain {
 		String username = scanner.nextLine();
 		System.out.println("Password : ");
 		String password = scanner.nextLine();
-		Customer loggedCustomer = customerManager.login(username, password);
+		Customer loggedCustomer = null;
+		try {
+			loggedCustomer = customerManager.login(username, password);
+		} catch (LoginException e) {
+			System.out.println(e.getLoginDesc());
+			System.exit(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
 		if (loggedCustomer == null) {
 			System.out.println("Username yada Password yanlýþ.");
 		} else {

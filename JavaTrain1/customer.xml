@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customerList>
+	<customers>
+		<accounts>
+			<accounType>TL</accounType>
+			<amount>1000.0</amount>
+			<name>Osman TL account</name>
+		</accounts>
+		<age>48</age>
+		<customerType>GUMUS</customerType>
+		<name>osman</name>
+		<password>1234</password>
+		<surname>yayciouglu</surname>
+		<username>osman</username>
+	</customers>
+	<customers>
+		<accounts>
+			<accounType>TL</accounType>
+			<amount>10000.0</amount>
+			<name>Test1 TL account</name>
+		</accounts>
+		<age>48</age>
+		<customerType>GUMUS</customerType>
+		<name>test1</name>
+		<password>1234</password>
+		<surname>test1Sur</surname>
+		<username>test1</username>
+	</customers>
+	<customers>
+		<accounts>
+			<accounType>TL</accounType>
+			<amount>2000.0</amount>
+			<name>Mehmet TL account</name>
+		</accounts>
+		<accounts>
+			<accounType>DOLAR</accounType>
+			<amount>1000.0</amount>
+			<name>Mehmet DOLAR account</name>
+		</accounts>
+		<age>48</age>
+		<customerType>GUMUS</customerType>
+		<name>mehmet</name>
+		<password>1234</password>
+		<surname>yayciouglu</surname>
+		<username>mehmet</username>
+	</customers>
+	<customers>
+		<accounts>
+			<accounType>TL</accounType>
+			<amount>2000.0</amount>
+			<name>Ali TL account</name>
+		</accounts>
+		<accounts>
+			<accounType>DOLAR</accounType>
+			<amount>1000.0</amount>
+			<name>Ali DOLAR account</name>
+		</accounts>
+		<accounts>
+			<accounType>EURO</accounType>
+			<amount>1500.0</amount>
+			<name>Ali EURO account</name>
+		</accounts>
+		<age>48</age>
+		<customerType>GUMUS</customerType>
+		<name>ali</name>
+		<password>1234</password>
+		<surname>yayciouglu</surname>
+		<username>ali</username>
+	</customers>
+</customerList>

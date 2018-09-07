@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personList>
+	<persons>
+		<age>48</age>
+		<name>Osman</name>
+		<phone>0434634443</phone>
+		<surname>yaycioglu</surname>
+	</persons>
+	<persons>
+		<age>30</age>
+		<name>mehmet</name>
+		<phone>0434634444</phone>
+		<surname>yaycioglu3</surname>
+	</persons>
+	<persons>
+		<age>20</age>
+		<name>ali</name>
+		<phone>0434634444</phone>
+		<surname>yayci</surname>
+	</persons>
+
+</personList>
