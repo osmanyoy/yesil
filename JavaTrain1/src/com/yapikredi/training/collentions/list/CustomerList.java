@@ -15,8 +15,7 @@ public class CustomerList {
 		Random random = new Random();
 
 		for (int i = 0; i < 100; i++) {
-			Customer customer = new Customer("osman" + StringUtils.addDigits(i, 3), "Yay" + StringUtils.addDigits(i, 3),
-					100 * i);
+			Customer customer = new Customer("osman" + StringUtils.addDigits(i, 3), "Yay" + StringUtils.addDigits(i, 3));
 			customer.setAge(random.nextInt(100));
 
 			customers.add(customer);

@@ -4,6 +4,13 @@ import java.nio.channels.ScatteringByteChannel;
 import java.util.Scanner;
 
 public class ZooMain {
+	
+	public static final int KEDI = 1;
+	public static final int KOPEK = 2;
+	public static final int ASLAN = 3;
+	public static final int PAPAGAN = 4;
+	public static final int FIL = 5;
+	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("1-Kedi");
@@ -14,7 +21,7 @@ public class ZooMain {
 		System.out.println("Seçiminiz : ");
 		int nextInt = scanner.nextInt();
 		switch (nextInt) {
-		case 1:
+		case KEDI:
 			Kedi kedi = new Kedi();
 			kedi.konus();
 			kedi.uyu();
@@ -22,7 +29,7 @@ public class ZooMain {
 			kedi.yemek();
 			break;
 
-		case 2:
+		case KOPEK:
 			Kopek kopek = new Kopek();
 			kopek.konus();
 			kopek.uyu();
@@ -30,7 +37,7 @@ public class ZooMain {
 			kopek.yemek();
 			break;
 
-		case 3:
+		case ASLAN:
 			Aslan aslan = new Aslan();
 			aslan.konus();
 			aslan.uyu();
@@ -38,7 +45,7 @@ public class ZooMain {
 			aslan.yemek();
 			break;
 
-		case 4:
+		case PAPAGAN:
 			Papagan papagan = new Papagan();
 			papagan.konus();
 			papagan.uyu();
@@ -46,7 +53,7 @@ public class ZooMain {
 			papagan.yemek();
 			break;
 
-		case 5:
+		case FIL:
 			Fil fil = new Fil();
 			fil.konus();
 			fil.uyu();

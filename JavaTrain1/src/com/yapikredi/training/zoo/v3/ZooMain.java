@@ -13,8 +13,11 @@ public class ZooMain {
 		System.out.println("5-Fil");
 		System.out.println("Seçiminiz : ");
 		int nextInt = scanner.nextInt();
-		switch (nextInt) {
-		case 1:
+		
+		EHayvanTip hayvanTipi = EHayvanTip.getHayvanTipi(nextInt);
+		
+		switch (hayvanTipi) {
+		case KEDI:
 			Kedi kedi = new Kedi();
 			kedi.konus();
 			kedi.uyu();
@@ -22,7 +25,7 @@ public class ZooMain {
 			kedi.yemek();
 			break;
 
-		case 2:
+		case KOPEK:
 			Kopek kopek = new Kopek();
 			kopek.konus();
 			kopek.uyu();
@@ -30,7 +33,7 @@ public class ZooMain {
 			kopek.yemek();
 			break;
 
-		case 3:
+		case ASLAN:
 			Aslan aslan = new Aslan();
 			aslan.konus();
 			aslan.uyu();
@@ -38,7 +41,7 @@ public class ZooMain {
 			aslan.yemek();
 			break;
 
-		case 4:
+		case PAPAGAN:
 			Papagan papagan = new Papagan();
 			papagan.konus();
 			papagan.uyu();
@@ -46,7 +49,7 @@ public class ZooMain {
 			papagan.yemek();
 			break;
 
-		case 5:
+		case FIL:
 			Fil fil = new Fil();
 			fil.konus();
 			fil.uyu();
