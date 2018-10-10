@@ -3,6 +3,7 @@ package com.allianz.spring.boot.employee;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Employee {
@@ -10,6 +11,7 @@ public class Employee {
     @Id
     @GeneratedValue
     private long   employeeId;
+    @NotEmpty
     private String name;
     private String surname;
     private int    age;

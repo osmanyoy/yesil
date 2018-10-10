@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class PhoneItem {
 
@@ -17,6 +19,7 @@ public class PhoneItem {
     private String   phone;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Customer customer;
 
     public long getPhoneId() {
@@ -45,11 +48,11 @@ public class PhoneItem {
     }
 
     public String getPhoneDesc() {
-        return phoneDesc;
+        return this.phoneDesc;
     }
 
-    public void setPhoneDesc(String phoneDescParam) {
-        phoneDesc = phoneDescParam;
+    public void setPhoneDesc(final String phoneDescParam) {
+        this.phoneDesc = phoneDescParam;
     }
 
 
